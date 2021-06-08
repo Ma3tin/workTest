@@ -149,7 +149,85 @@ public class Main {
                 countOfExamples = Integer.parseInt(sc.nextLine());
                 countOfRightExamples = 0;
                 for (int i = 0; i < countOfExamples; i++) {
-
+                    int sign = (rd.nextInt((6 - 1) + 1) + 1);
+                    /**
+                     * 1. dec to bin
+                     * 2. dec to hex
+                     * 3. bin to dec
+                     * 4. bin to hex
+                     * 5. hex to dec
+                     * 6. hex to bin
+                     */
+                    switch (sign) {
+                        case 1:
+                            System.out.println((i + 1) + "/" + countOfExamples);
+                            int first = returnNumber();
+                            String output = Integer.toBinaryString(first);
+                            System.out.println(first + "(decimal) to binary = ?");
+                            String userOutput = sc.nextLine();
+                            if (output.equals(userOutput)) {
+                                System.out.println("Spávně");
+                                countOfRightExamples++;
+                            } else System.out.println("Špatně");
+                            break;
+                        case 2:
+                            System.out.println((i + 1) + "/" + countOfExamples);
+                            first = returnNumber();
+                            output = Integer.toHexString(first);
+                            System.out.println(first + "(decimal) to hexadecimal = ?");
+                            userOutput = sc.nextLine();
+                            if (output.equals(userOutput)) {
+                                System.out.println("Spávně");
+                                countOfRightExamples++;
+                            } else System.out.println("Špatně");
+                            break;
+                        case 3:
+                            System.out.println((i + 1) + "/" + countOfExamples);
+                            first = returnNumber();
+                            output = Integer.toBinaryString(first);
+                            System.out.println(output + "(binary) to decimal = ?");
+                            userOutput = sc.nextLine();
+                            if (String.valueOf(first).equals(userOutput)) {
+                                System.out.println("Spávně");
+                                countOfRightExamples++;
+                            } else System.out.println("Špatně");
+                            break;
+                        case 4:
+                            System.out.println((i + 1) + "/" + countOfExamples);
+                            first = returnNumber();
+                            output = Integer.toBinaryString(first);
+                            System.out.println(output + "(binary) to hexadecimal = ?");
+                            output = Integer.toHexString(first);
+                            userOutput = sc.nextLine();
+                            if (output.equals(userOutput)) {
+                                System.out.println("Spávně");
+                                countOfRightExamples++;
+                            } else System.out.println("Špatně");
+                            break;
+                        case 5:
+                            System.out.println((i + 1) + "/" + countOfExamples);
+                            first = returnNumber();
+                            output = Integer.toHexString(first);
+                            System.out.println(output + "(hexadecimal) to decimal = ?");
+                            userOutput = sc.nextLine();
+                            if (String.valueOf(first).equals(userOutput)) {
+                                System.out.println("Spávně");
+                                countOfRightExamples++;
+                            } else System.out.println("Špatně");
+                            break;
+                        case 6:
+                            System.out.println((i + 1) + "/" + countOfExamples);
+                            first = returnNumber();
+                            output = Integer.toHexString(first);
+                            System.out.println(output + "(hexadecimal) to binary = ?");
+                            output = Integer.toBinaryString(first);
+                            userOutput = sc.nextLine();
+                            if (output.equals(userOutput)) {
+                                System.out.println("Spávně");
+                                countOfRightExamples++;
+                            } else System.out.println("Špatně");
+                            break;
+                    }
                 }
         }
         System.out.println("Počet správných příkladů: " + countOfRightExamples + "/" + countOfExamples);
@@ -163,7 +241,7 @@ public class Main {
     }
     public static int returnNumber() {
         Random rd = new Random();
-        return (rd.nextInt((1000 - 1) + 1) + 1);
+        return (rd.nextInt((100 - 1) + 1) + 1);
     }
     public static void printMenu() {
         System.out.println("1. sčítání, odčítání, násobení a dělení celých čísel");
